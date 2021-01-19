@@ -1,0 +1,32 @@
+<app-parent-header></app-parent-header>
+<app-parent-side></app-parent-side>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="head">
+            <span>المدفوعات</span>
+        </div>
+        <!--  -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>رقم الطلب</th>
+                    <th>التكلفة الاجمالية</th>
+                    <th>حالة الدفع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of paymentAll; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.cost}}</td>
+                    <!-- <td>{{item.status}}</td> -->
+                    <td *ngIf="item.status === 0"> Unpaid </td>
+                    <td *ngIf="item.status === 1"> Paid </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--  -->
+    </div>
+
+</div>

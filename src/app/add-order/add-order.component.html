@@ -1,0 +1,240 @@
+<div class="appAddOrder">
+    <app-parent-header></app-parent-header>
+    <app-parent-side></app-parent-side>
+    <div class="appSideInfo">
+        <div class="infoContent">
+            <div class="head">
+                <span>الطلبات</span>
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                <span>اضافة طلب جديد</span>
+            </div>
+            <!--  -->
+            <div class="addOrder">
+                <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+                    <div class="formRow">
+                        <div class="form-group">
+                            <label for="study_year">السنة الدراسية</label>
+                            <input type="text" formControlName="study_year" placeholder="السنة الدراسية" name="study_year" class="form-control" id="year">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="class">المرحلة الدراسية </label>
+                            <select class="form-control" formControlName="class_id">
+                                <option *ngFor="let class of class_id; let i = index" [value]="class_id[i].id">
+                                {{class_id[i].name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="form-group">
+                            <label for="fatherName">اسم الوالد</label>
+                            <input type="text" formControlName="father_full_name" placeholder="اسم الوالد" name="father_full_name" class="form-control" id="fatherName">
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality">الجنسية</label>
+                            <input type="text" formControlName="nationality" placeholder="اسم الطالب" name="nationality" class="form-control" id="nationality">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="idNum">رقم الهوية</label>
+                            <input type="text" formControlName="father_national_id" placeholder="رقم الهوية" name="father_national_id" class="form-control" id="idNum">
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="text" formControlName="mobile" placeholder="رقم الهاتف" name="mobile" class="form-control" id="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">البريد الالكتروني</label>
+                            <input type="email" formControlName="email" placeholder="البريد الالكتروني" name="email" class="form-control" id="email">
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="form-group">
+                            <label for="sName"> اسم الطالب</label>
+                            <input type="text" formControlName="student_name" placeholder="اسم الطالب" name="student_name" class="form-control" id="sName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sNationality">الجنسية</label>
+                            <input type="text" formControlName="nationality" placeholder="اسم الطالب" name="nationality" class="form-control" id="sNationality">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sIdNum">رقم الهوية</label>
+                            <input type="text" formControlName="student_national_id" placeholder="رقم الهوية" name="student_national_id" class="form-control" id="sIdNum">
+                        </div>
+                    </div>
+                    <div class="formRow">
+                        <div class="form-group">
+                            <label for="gender">الجنس</label>
+                            <select class="form-control" formControlName="gender">
+                                <option *ngFor="let item of gender; let i = index" [value]="gender[i].name">
+                                {{gender[i].name}}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthDate">تاريخ الميلاد</label>
+                            <input type="text" formControlName="date_of_birth" placeholder="تاريخ الميلاد" name="date_of_birth" class="form-control" id="birthDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">مكان الميلاد</label>
+                            <input type="text" formControlName="place_of_birth" placeholder="مكان الميلاد" name="place_of_birth" class="form-control" id="address">
+                        </div>
+                    </div>
+                    <div class="formRadio">
+                        <div class="form-group">
+                            <span class="radioTitle">نوع السنة الدراسية</span>
+                            <div class="radioLabels">
+                                <label class="radio-inline">
+                                    <input type="radio" value="عام كامل" formControlName="study_type" > نصف ترم
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="ترم" formControlName="study_type" > ترم
+                                    كامل
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="radioTitle">المواصلات </span>
+                            <div class="radioLabels">
+                                <label class="radio-inline">
+                                    <input type="radio" value="بمواصلات" formControlName="bus" > باص
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="بدون مواصلات" formControlName="bus" > بدون باص
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="radioTitle">طبيعة المواصلات</span>
+                            <div class="radioLabels">
+                                <label class="radio-inline">
+                                    <input type="radio" value="ذهاب وعودة" formControlName="trip" > ذهاب و عودة
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="ذهاب او عودة فقط" formControlName="trip" >  ذهاب او عودة فقط
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="radioTitle">الحالة الصحية للطالب</span>
+                            <div class="radioLabels">
+                                <label class="radio-inline">
+                                    <input type="radio" value="جيد" formControlName="health_status" > جيدة
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="مريض" formControlName="health_status" > مريض
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formFiles">
+                        <div class="head">
+                            المرفقات
+                        </div>
+                        <div class="form-group">
+                            <label class="filelabel">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                <span class="title">
+                                دفتر العائلة
+                                </span>
+                                <input class="frmFileInput" id="family" name="civil_status_book" type="file"
+                                (change)="onFamilySelect($event)" />
+                            </label>
+                        </div>
+                        <!--  -->
+                        <div class="form-group">
+                            <label class="filelabel">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                <span class="title">
+                                شهادة التطعيم
+                                </span>
+                                <input class="frmFileInput" id="graft" name="certificate_of_vaccination" type="file"
+                                (change)="onGraftSelect($event)" />
+                            </label>
+                        </div>
+                        <!--  -->
+                        <div class="form-group">
+                            <label class="filelabel">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                <span class="title">
+                                شهادة الميلاد
+                                </span>
+                                <input class="frmFileInput" id="birthPaper" name="certificate_of_birth" type="file"
+                                (change)="onBirthPaperSelect($event)" />
+                            </label>
+                        </div>
+                        <!--  -->
+                        <div class="form-group">
+                            <label class="filelabel">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                <span class="title">
+                                صورة الهوية للطالب
+                                </span>
+                                <input class="frmFileInput" id="studentPic" name="student_national_id_photo" type="file"
+                                (change)="onStudentPicSelect($event)" />
+                            </label>
+                        </div>
+                        <!--  -->
+                        <div class="form-group">
+                            <label class="filelabel">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                <span class="title">
+                                صورة الهوية للوالد
+                                </span>
+                                <input class="frmFileInput" id="parentPic" name="father_national_id_photo" type="file"
+                                (change)="onParentPicSelect($event)" />
+                            </label>
+                        </div>
+                        <!--  -->
+                    </div>
+                    <div class="bill">
+                        <button class="btn" data-toggle="modal" data-target="#billModal">تقديم الطلب</button>
+                    </div>
+                </form>
+                <!-- Modal -->
+                <div *ngIf="showModal" class="modal fade in" aria-hidden="true" id="billModal" tabindex="-1" role="dialog" aria-labelledby="billModal" style="display: block;opacity: 1;background-color: rgba(0, 0, 0, 0.5);
+                ">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">
+                                    فاتورة الطلب
+                                </h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="cost">
+                                    <span>الرسوم الدراسية</span>
+                                    <span>{{ cost }}</span>
+                                </div>
+                                <div class="tax">
+                                    <span>الضريبة المضافة</span>
+                                    <span>{{ tax }}</span>
+                                </div>
+                                <div class="total_cost">
+                                    <span>الاجمالي</span>
+                                    <span>{{ total_cost }}</span>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" (click)="closeModal()">
+                                تقديم الطلب
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Modal -->
+            </div>
+        </div>
+
+    </div>
+</div>

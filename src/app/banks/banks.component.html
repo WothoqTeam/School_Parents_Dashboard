@@ -1,0 +1,26 @@
+<app-parent-header></app-parent-header>
+<app-parent-side></app-parent-side>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="head">
+            <span>قائمة البنوك</span>
+        </div>
+        <!--  -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>اسم البنك</th>
+                    <th>IBAN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of banks; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.iban}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

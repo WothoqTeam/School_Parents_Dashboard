@@ -1,0 +1,38 @@
+.new {
+    background-color: #fff;
+}
+
+.pend {
+    background-color: rgb(160, 245, 143);
+}
+
+.test {
+    background-color: rgb(245, 245, 153);
+}
+
+.interview {
+    background-color: rgb(197, 197, 197)
+}
+
+.pay {
+    background-color: rgb(230, 174, 91);
+}
+
+.complete {
+    background-color: lightseagreen;
+}
+
+.infoAction span {
+    display: inline-block;
+    width: 90%;
+    float: right;
+}
+
+.addBtn {
+    display: inline-block;
+    width: 10%;
+}
+
+td button i {
+    color: var(--danger);
+}

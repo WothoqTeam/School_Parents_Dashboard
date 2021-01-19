@@ -1,0 +1,38 @@
+.head span,
+.head form {
+    display: inline-block;
+}
+
+.head span {
+    float: right;
+    width: 15%;
+}
+
+.head form {
+    width: 85%;
+}
+
+.head .form-group {
+    display: inline-block;
+    width: 70%;
+}
+
+.head .form-group select {
+    width: 50%;
+    margin: auto;
+    position: relative;
+    top: 0.5rem;
+}
+
+.head .action {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+
+.head .action button {
+    background-color: #78bde7;
+    border: 1px solid #78bde7;
+    border-radius: 5px;
+    color: #fff;
+}

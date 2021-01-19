@@ -1,0 +1,41 @@
+<app-parent-header></app-parent-header>
+<app-parent-side></app-parent-side>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="head">
+            <span>اختر الطلب</span>
+            <form [formGroup]="selectForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <select class="form-control" formControlName="app_id">
+                        <option *ngFor="let item of appAll; let i = index" [value]="item.id" >
+                        {{item.student_name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="action">
+                    <button class="btn">المقابلة الشخصية</button>
+                </div>
+            </form>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>رقم الطلب</th>
+                    <th>التاريخ والوقت</th>
+                    <th> رابط الاجتماع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of appInterviews; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{item.application_id}}</td>
+                    <td>{{item.date}} / {{item.time}}</td>
+                    <td>
+                        <a [routerLink]="item.link">{{ item.link }}</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,187 @@
+.formRow,
+.formRadio,
+.formFiles {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.formRow .form-group,
+.formRadio .form-group {
+    display: inline-block;
+    width: 30%;
+    float: right;
+    margin-left: 2rem;
+}
+
+.formRadio .radioTitle {
+    display: block;
+}
+
+.formRadio .radioLabels {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    position: relative;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+.formRadio .radio-inline {
+    margin-left: 2rem;
+}
+
+.formRadio input[type=radio] {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 6px;
+}
+
+.addOrder {
+    margin-top: 3rem;
+}
+
+.formFiles .form-group {
+    display: inline-block;
+    width: 21%;
+    float: right;
+    margin-left: 2rem;
+}
+
+.formFiles .head {
+    display: block;
+    text-align: right;
+    color: #000000c7;
+    border-top: 1px solid #ced4da;
+    border-bottom: 0;
+    font-weight: 600;
+}
+
+.filelabel {
+    width: 100%;
+    border: 2px dashed #78bde7;
+    border-radius: 5px;
+    display: block;
+    transition: border 300ms ease;
+    cursor: pointer;
+    text-align: center;
+    margin: 0;
+    height: 120px;
+    padding-top: 1.5rem;
+}
+
+.filelabel i {
+    display: block;
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+
+.filelabel .title {
+    color: grey;
+    transition: 200ms color;
+}
+
+.filelabel i {
+    color: #78bde7;
+    transition: 200ms color;
+}
+
+.filelabel:hover {
+    border: 2px solid #78bde7;
+}
+
+.filelabel:hover i,
+.filelabel:hover .title {
+    color: #78bde7;
+}
+
+.frmFileInput {
+    display: none;
+}
+
+.bill {
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.bill button {
+    width: 30%;
+    text-align: center;
+    background-color: #78bde7;
+    color: #fff;
+    margin-left: 6%;
+}
+
+.modal-header {
+    display: block;
+    background-color: #78bde742;
+    color: #000;
+    text-align: center;
+}
+
+.modal-footer {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+
+.modal-footer button {
+    background-color: #78bde7;
+    color: #fff;
+    text-align: center;
+    width: 60%;
+}
+
+.cost,
+.tax {
+    display: block;
+    width: 90%;
+    border-bottom: 1px solid #dee2e6;
+    margin: auto;
+    padding: 1rem 0;
+}
+
+.cost span:first-of-type,
+.tax span:first-of-type {
+    display: inline-block;
+    width: 80%;
+    float: right;
+    text-align: right;
+    color: #000;
+}
+
+.cost span:last-of-type,
+.tax span:last-of-type {
+    display: inline-block;
+    width: 20%;
+    text-align: left;
+    color: #000;
+}
+
+.total_cost {
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 1rem 0;
+}
+
+.total_cost span:first-of-type {
+    display: inline-block;
+    width: 80%;
+    float: right;
+    text-align: right;
+    color: #78bde7;
+}
+
+.total_cost span:last-of-type {
+    display: inline-block;
+    width: 20%;
+    text-align: left;
+    color: #78bde7;
+}

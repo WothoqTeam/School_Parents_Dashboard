@@ -1,0 +1,49 @@
+<div class="appAuth">
+    <div class="authContent">
+        <div class="authBg">
+            <div class="img"></div>
+        </div>
+        <div class="authForm">
+            <div class="authLogo">
+                <img src="../../assets/images/authLogo.PNG" alt="">
+            </div>
+            <h5>
+                مرحبا بعودتك! يرجى تسجيل الدخول إلى حسابك
+            </h5>
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="email">البريد الالكتروني</label>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <input placeholder="ادخل البريد الالكتروني" type="text" class="form-control" name="email" [(ngModel)]="form.email" required #email="ngModel" />
+                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && email.invalid">
+                        email is required!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <input placeholder="ادخل كلمة السر" type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+                        <div *ngIf="password.errors.required">Password is required</div>
+                        <div *ngIf="password.errors.minlength">
+                            Password must be at least 6 characters
+                        </div>
+                    </div>
+                </div>
+                <!-- <a class="forget" routerLink="/parent/forget">
+                    فقدت كلمة المرور؟
+                </a> -->
+                <div class="form-group">
+                    <button class="btn btnLog btn-block"> تسجيل الدخول</button>
+                </div>
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                        Login failed: {{ errorMessage }}
+                    </div>
+                </div>
+            </form>
+            <!-- <div class="alert alert-success" *ngIf="isLoggedIn" (click)="goHome()">
+            </div> -->
+        </div>
+    </div>
+</div>

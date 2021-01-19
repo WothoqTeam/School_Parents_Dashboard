@@ -1,0 +1,35 @@
+<app-parent-header></app-parent-header>
+<app-parent-side></app-parent-side>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="head">
+            <span>اختر الفصل الدراسي</span>
+            <form [formGroup]="selectForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <select class="form-control" formControlName="class_id">
+                        <option *ngFor="let item of classAll; let i = index" [value]="item.id" >
+                        {{item.name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="action">
+                    <button class="btn">عرض الجدول الدراسي</button>
+                </div>
+            </form>
+        </div>
+        <!--  -->
+        <div class="schedule" *ngIf="showDetails">
+            <div class="days" *ngFor="let day of days; let i = index">
+                <div class="dayName">
+                    <span>{{day.day.name}}</span>
+                </div>
+                <div class="related">
+                    <div class="item" *ngFor="let ration of day.day.rations let i = index">
+                        <span class="num"> الحصة {{i+1}}: </span>
+                        <span class="name"> {{ration.ration.subject.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

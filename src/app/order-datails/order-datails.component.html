@@ -1,0 +1,199 @@
+<app-parent-header></app-parent-header>
+<app-parent-side></app-parent-side>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="head">
+            <span>اختر الطلب</span>
+            <form [formGroup]="selectForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <select class="form-control" formControlName="app_id">
+                        <option *ngFor="let item of appAll; let i = index" [value]="item.id" >
+                        {{item.student_name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="action">
+                    <button class="btn"> بيانات الطلب</button>
+                </div>
+            </form>
+        </div>
+        <!--    -->
+        <div id="exTab1" *ngIf="showDetails">
+            <!--  Tabs  -->
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#1a" data-toggle="tab">بيانات الطالب</a> </li>
+                <li><a href="#2a" data-toggle="tab">مستندات</a> </li>
+                <li><a href="#3a" data-toggle="tab">الاجتماع</a> </li>
+                <li><a href="#4a" data-toggle="tab">الامتحان</a> </li>
+                <li><a href="#5a" data-toggle="tab">التحويل البنكي</a> </li>
+                <!-- <li><a href="#6a" data-toggle="tab">مكتمل</a> </li> -->
+            </ul>
+            <!--  /Tabs  -->
+            <!-- Tab Content -->
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1a">
+                    <div class="studentName">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <span>{{ appInfos.student_name }}</span>
+                    </div>
+                    <div class="details">
+                        <div class="item">
+                            <h5>السنة الدراسية</h5>
+                            <h6>{{ appInfos.study_year }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>اسم الوالد</h5>
+                            <h6>{{ appInfos.father_full_name }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>الهوية</h5>
+                            <h6>{{ appInfos.nationality }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>رقم هوية الوالد</h5>
+                            <h6>{{ appInfos.father_national_id }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>رقم التليفون</h5>
+                            <h6>{{ appInfos.mobile }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>البريد الالكتروني</h5>
+                            <h6>{{ appInfos.email }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>اسم الطالب</h5>
+                            <h6>{{ appInfos.student_name }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5> الجنس</h5>
+                            <h6>{{ appInfos.gender }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5> رقم هوية الطالب</h5>
+                            <h6>{{ appInfos.student_national_id }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5> تاريخ الميلاد</h5>
+                            <h6>{{ appInfos.date_of_birth }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5> مكان الميلاد</h5>
+                            <h6>{{ appInfos.place_of_birth }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>نوع السنة الدراسية</h5>
+                            <h6>{{ appInfos.study_type }}</h6>
+                        </div>
+                        <div class="item">
+                            <h5>الأنتقالات</h5>
+                            <h6>{{ appInfos.bus }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="tab-pane" id="2a">
+                    <div class="studentName">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <span>{{ appInfos.student_name }}</span>
+                    </div>
+                    <div class="details">
+                        <div class="item">
+                            <pdf-viewer [src]="appInfos.civil_status_book" [original-size]="false"></pdf-viewer>
+                            <h5>دفتر العائلة</h5>
+                        </div>
+                        <div class="item">
+                            <pdf-viewer [src]="appInfos.certificate_of_vaccination" [original-size]="false"></pdf-viewer>
+                            <h5>شهادة التطعيم</h5>
+                        </div>
+                        <div class="item">
+                            <pdf-viewer [src]="appInfos.certificate_of_birth" [original-size]="false"></pdf-viewer>
+                            <h5> شهادة الميلاد </h5>
+                        </div>
+                        <div class="item">
+                            <pdf-viewer [src]="appInfos.student_national_id_photo" [original-size]="false"></pdf-viewer>
+                            <h5>صورة الهوية للطالب </h5>
+                        </div>
+                        <div class="item">
+                            <pdf-viewer [src]="appInfos.father_national_id_photo" [original-size]="false"></pdf-viewer>
+                            <h5>صورة الهوية للوالد </h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="tab-pane" id="3a">
+                    <div class="studentName">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <span>{{ appInfos.student_name }}</span>
+                    </div>
+                    <div class="details" *ngFor="let item of appInterviews; let i = index">
+                        <div class="itemInterview">
+                            <i class="fa fa-circle" aria-hidden="true"></i>
+                            <h5>رابط الاجتماع </h5>
+                            <a [href]="item.link">
+                                <h6>{{ item.link }}</h6>
+                            </a>
+                        </div>
+                        <div class="itemInterview">
+                            <i class="fa fa-circle" aria-hidden="true"></i>
+                            <h5>تاريخ الاجتماع </h5>
+                            <h6>{{ item.date }}</h6>
+                        </div>
+                        <div class="itemInterview">
+                            <i class="fa fa-circle" aria-hidden="true"></i>
+                            <h5>وقت الاجتماع </h5>
+                            <h6>{{ item.time }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="tab-pane" id="4a">
+                    <div class="details" *ngFor="let item of appExams; let i = index">
+                        <div class="itemExam">
+                            <h5>{{ item.name }}</h5>
+                            <h6>
+                                <span>  الزمن المتبقي :</span>
+                                <span>{{ item.exam_timer }}</span>
+                                <span>دقيقة</span>
+                            </h6>
+                        </div>
+                        <form [formGroup]="sendAnswer" (ngSubmit)="onAnsSubmit()">
+                            <div class="itemQestion" *ngFor="let ques of item.question; let x = index">
+                                <h3>السؤال رقم {{ x + 1}}</h3>
+                                <h4>: {{ ques.question }}</h4>
+                                <div class="answers">
+                                    <div class="itemAnswer" *ngFor="let ans of ques.answers; let y = index">
+                                        <div class="radioLabels">
+                                            <label class="radio-inline">
+                                                <input type="radio" formControlName="ans" value="ans.id"> 
+                                                {{ ans.answer }}
+                                                <!-- <img  [src]="ans.answer" alt=""> -->
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="send">
+                                <button class="btn"> ارسل الاجابة  </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="tab-pane" id="5a">
+
+                </div>
+                <!-- 6 -->
+                <!-- <div class="tab-pane" id="6a">
+                    <div class="studentName">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <span>{{ appInfos.student_name }}</span>
+                    </div>
+                </div> -->
+                <!--  -->
+            </div>
+            <!-- /Tab Content -->
+        </div>
+        <!--  /  -->
+    </div>
+</div>

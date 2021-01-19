@@ -1,0 +1,182 @@
+/* Gneral */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    direction: rtl;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Cairo', sans-serif;
+}
+
+input:focus,
+.form-control:focus {
+    box-shadow: none;
+}
+
+.table td,
+.table th {
+    text-align: center;
+}
+
+
+/* ======================*  Auth  *=========================== */
+
+.appAuth {}
+
+.authContent {}
+
+.authBg {
+    display: inline-block;
+    width: 40%;
+    float: right;
+    height: 625px;
+}
+
+.authBg .img {
+    background-image: url("./assets/images/auth-bg.jpg");
+    background-color: #cccccc;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.authForm {
+    display: inline-block;
+    width: 60%;
+    background-color: #fff;
+    margin-top: 4%;
+}
+
+.authLogo {
+    display: block;
+    width: 200px;
+    margin: auto;
+}
+
+.authLogo img {
+    width: 100%;
+}
+
+.authForm h5 {
+    text-align: center;
+    color: #666766;
+    font-weight: 700;
+    margin: 1.5rem 0;
+}
+
+.authForm .form-group {
+    position: relative;
+}
+
+.authForm input {
+    padding-right: 3rem;
+}
+
+.authForm input:focus,
+.authForm .btn.btnLog:focus {
+    box-shadow: none;
+}
+
+.authForm input::placeholder {
+    color: #ced4da;
+}
+
+.authForm .fa {
+    position: absolute;
+    right: 0;
+    top: 47%;
+    color: #fff;
+    background-color: #ced4da;
+    width: 40px;
+    text-align: center;
+    height: 36px;
+    line-height: 2;
+    border: 1px solid #ced4da;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+.authForm form {
+    display: block;
+    width: 70%;
+    margin: auto;
+    text-align: right;
+}
+
+.authForm .forget {
+    color: #666766;
+    text-align: left;
+    text-decoration: underline;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.authForm .btnLog {
+    background-color: #78bde7;
+    color: #fff;
+    border: 1px solid #78bde7;
+}
+
+
+/* ================================================= */
+
+.appSideInfo {
+    display: inline-block;
+    width: 85%;
+}
+
+.appSideInfo .infoContent {
+    display: block;
+    width: 90%;
+    text-align: right;
+    margin: auto;
+}
+
+.appSideInfo .head {
+    height: 70px;
+    border-bottom: 1px solid #dae0e5;
+    line-height: 4;
+}
+
+.appSideInfo .head span:first-of-type {
+    font-size: 1.2rem;
+}
+
+.appSideInfo .head span:last-of-type {
+    color: #78bde7;
+}
+
+.appSideInfo .head i {
+    color: #dae0e5;
+    margin: 0 0.5rem;
+}
+
+.addBtn {
+    color: #fff;
+    background-color: #78bde7;
+    border: 1px solid #78bde7;
+    border-radius: 5px;
+}
+
+.addBtn:hover,
+.addBtn:focus {
+    color: #fff;
+    background-color: #4a7c9abd;
+    border: 1px solid #4a7c9abd;
+    outline: none;
+    box-shadow: none;
+}
+
+.infoAction {
+    padding: 1rem 0;
+}

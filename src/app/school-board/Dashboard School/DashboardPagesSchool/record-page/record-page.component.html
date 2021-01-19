@@ -1,0 +1,88 @@
+<app-header></app-header>
+<app-side></app-side>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div id="Fade4" class="w3-container city w3-animate-opacity">
+            <div style="margin-top:3rem ;margin-right: 2rem;">
+                <span style="font-size: 25px;font-family:Arial, Helvetica, sans-serif ;">الصفحة الرئيسيه<i
+                        class="fas fa-angle-left mr-2" style="color: rgb(180, 178, 178);"></i></span>
+                <span style="font-size: 25px;color:mediumturquoise;font-family:Arial, Helvetica, sans-serif ;"> نظام
+                    التسجيل</span>
+            </div>
+            <hr style="width:90%;margin-top: 2rem;">
+            <div>
+                <span style="float: right;">
+
+                    <form class="example" style="max-width:300px;">
+                        <input type="text" placeholder="اختر" name="search2">
+                        <button><i class="fas fa-pen"></i></button>
+                    </form>
+                </span>
+                <span style="float: right;margin-right: 10rem;">
+                    <form class="example" style="max-width:300px;">
+                        <!-- (keydown)="filterBank($event)" -->
+                        <input type="text" placeholder="البحث" name="search2" >
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </span>
+                <span>
+                    <button type="button" class="btn btn-info "
+                        style="margin-top: -5rem;margin-right: 58rem;width: 12%;height: 50px;font-size: 18px;">اجراء
+                        مقابلة
+                        شخصيه</button>
+                    <button type="button" class="btn btn-info "
+                        style="margin-top: -8rem;margin-right: 70rem;width: 12%;height: 50px;font-size: 18px;">اجراء
+                        امتحان</button>
+
+                    <button type="button" class="btn btn-info "
+                        style="margin-top: -3rem;margin-right: 58rem;width: 12%;height: 50px;font-size: 18px;">اضافة طلب
+                        تسجيل</button>
+                    <button type="button" class="btn  "
+                        style="margin-top: -6rem;margin-right: 70rem;width: 12%;height: 50px;font-size: 18px;background-color: rgb(107, 196, 107);color: white;">تصدير
+                        الى الاكسيل</button>
+                </span>
+                <table class="table text-center" style="width: 90%;">
+
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">أسم الطالب <i class="fas fa-sort mr-2" style="font-size: 18px;"></i></th>
+                            <th scope="col">رقم هويه الطالب <i class="fas fa-sort mr-2" style="font-size: 18px;"></i>
+                            </th>
+                            <th scope="col">حالة الطلب <i class="fas fa-sort mr-2" style="font-size: 18px;"></i></th>
+                            <th scope="col">تعديل <i class="fas fa-sort mr-2" style="font-size: 18px;"></i></th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                        <tr *ngFor="let item of appList" [ngClass]="{'complete': item.status === 'مكتمل' ,
+                                                          'editable': item.status === 'تحت المعالجة',
+                                                          'meeting': item.status === 'المقابلة الشخصية',
+                                                          'payment': item.status === 'السداد' ,
+                                                          'accept' : item.status === 'اختبار القبول'}">
+                            <th scope="row">{{item.id}}</th>
+                            <td>{{item.student_name}}</td>
+                            <td>{{item.student_national_id}}</td>
+                            <td>{{item.status}}</td>
+                            <td><button type="button" class="btn  ml-1"
+                                    style="color: white;background-color:rgb(70, 184, 219);" data-toggle="modal"
+                                    data-target="#myModal">
+                                    <i class="fas fa-pen"></i></button> | <button style="background-color: lightblue;"
+                                    class="btn ml-2 text-white mr-2" (click)="Delete(item)"><i
+                                        class="fas fa-file"></i></button> | <button class="btn btn-danger mr-2"
+                                    (click)="Delete(item)"><i class="far fa-trash-alt"></i></button></td>
+                        </tr>
+
+                    </tbody>
+                    <!--Table body-->
+
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

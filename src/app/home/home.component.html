@@ -1,0 +1,48 @@
+<app-parent-header></app-parent-header>
+<app-parent-side></app-parent-side>
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="head">
+            <span>الطلبات</span>
+        </div>
+        <!--  -->
+        <div class="infoAction">
+            <span></span>
+            <button class="btn addBtn" (click)="addOrder()">اضافة طلب</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>اسم الطالب</th>
+                    <th>حالة الطلب</th>
+                    <th>مسح</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of appAll; let i = index" [ngClass]="{
+                    'new' : item.status === 'طلب جديد',
+                    'pend' : item.status === 'تحت المعالجة',
+                    'test' : item.status === 'اختبار القبول',
+                    'interview' : item.status === 'المقابلة الشخصية',
+                    'pay' : item.status === 'السداد',
+                    'complete' : item.status === 'مكتمل' }">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{item.student_name}}</td>
+                    <td>
+                        {{item.status}}
+                    </td>
+                    <td>
+                        <button class="btn" (click)="deleteOrder(item.id)"> 
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!--  -->
+    </div>
+
+</div>
